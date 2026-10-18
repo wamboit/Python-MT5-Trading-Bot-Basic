@@ -1,0 +1,349 @@
+/* Wambo Home & Living — mobile-first furniture catalogue */
+
+:root {
+  --brown-900: #3e2c1e;
+  --brown-700: #6b4a2f;
+  --amber-600: #b4700f;
+  --amber-500: #d98a1f;
+  --cream-50: #faf6f0;
+  --cream-100: #f2eadf;
+  --ink: #2b2320;
+  --muted: #7a6c62;
+  --line: #e5d9c9;
+  --white: #ffffff;
+  --radius: 14px;
+  --shadow: 0 2px 10px rgba(62, 44, 30, 0.08);
+  --shadow-lg: 0 8px 24px rgba(62, 44, 30, 0.14);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--cream-50);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+
+.container {
+  width: min(1100px, 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+.muted { color: var(--muted); font-size: 0.9rem; margin: 0; }
+
+h1, h2, h3 { line-height: 1.25; margin: 0 0 0.5rem; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); color: var(--brown-900); }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--brown-900);
+  font-weight: 700;
+}
+
+.brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: var(--brown-700);
+  color: var(--cream-50);
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.main-nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.main-nav a:hover { color: var(--amber-600); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.3rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.btn-primary {
+  background: var(--amber-500);
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.btn-outline {
+  border-color: var(--brown-700);
+  color: var(--brown-700);
+  background: transparent;
+}
+
+.btn-whatsapp {
+  width: 100%;
+  background: #25d366;
+  color: #fff;
+  border: none;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--brown-900), var(--brown-700));
+  color: var(--cream-50);
+  padding-block: 4rem;
+}
+
+.hero-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  color: var(--amber-500);
+  margin: 0 0 0.75rem;
+}
+
+.hero h1 { font-size: clamp(1.9rem, 5vw, 3rem); max-width: 22ch; }
+
+.hero-sub { max-width: 55ch; opacity: 0.9; }
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+/* ---------- Catalogue ---------- */
+.catalogue { padding-block: 3.5rem; }
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 1.25rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 1rem;
+  background: var(--white);
+  color: var(--ink);
+}
+
+.search-box input:focus {
+  outline: 2px solid var(--amber-500);
+  outline-offset: 1px;
+}
+
+.category-chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.chip {
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.chip:hover { border-color: var(--amber-500); }
+
+.chip.active {
+  background: var(--brown-700);
+  border-color: var(--brown-700);
+  color: var(--cream-50);
+}
+
+.results-count { color: var(--muted); font-size: 0.9rem; margin: 1rem 0 0; }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--cream-100);
+}
+
+.product-body {
+  padding: 1rem 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.product-category {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--amber-600);
+  font-weight: 700;
+}
+
+.product-name { font-size: 1.05rem; margin: 0; }
+
+.product-desc { color: var(--muted); font-size: 0.88rem; margin: 0; flex: 1; }
+
+.product-price {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--brown-900);
+  margin: 0.4rem 0 0.7rem;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--muted);
+  padding-block: 2.5rem;
+  font-size: 1rem;
+}
+
+/* ---------- Delivery ---------- */
+.delivery {
+  background: var(--cream-100);
+  padding-block: 3.5rem;
+}
+
+.delivery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.delivery-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  box-shadow: var(--shadow);
+}
+
+.delivery-card h3 { font-size: 1.05rem; color: var(--brown-700); }
+.delivery-card p { margin: 0; font-size: 0.93rem; color: var(--ink); }
+
+/* ---------- Contact ---------- */
+.contact { padding-block: 3.5rem; }
+
+.contact-sub { margin-top: 0.25rem; color: var(--muted); }
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.contact-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+}
+
+.contact-card h3 { font-size: 1rem; color: var(--brown-700); }
+.contact-card p { margin: 0.2rem 0; }
+
+.contact-card a { color: var(--amber-600); font-weight: 600; text-decoration: none; }
+.contact-card a:hover { text-decoration: underline; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--brown-900);
+  color: var(--cream-100);
+  padding-block: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-inner p { margin: 0; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 640px) {
+  .hero { padding-block: 3rem; }
+  .header-inner { justify-content: center; }
+  .main-nav { justify-content: center; }
+  .product-grid { grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+  .product-body { padding: 0.8rem 0.8rem 1rem; }
+  .product-desc { display: none; }
+  .product-price { font-size: 1.05rem; }
+}
+
+@media (max-width: 420px) {
+  .product-grid { grid-template-columns: 1fr; }
+  .product-desc { display: block; }
+}
